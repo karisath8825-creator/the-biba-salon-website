@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Biba Salon — makeup, beauty and glam in Patna, Bihar. Rated 4.9 by 1,273 reviews." />
+<title>The Biba Salon — Patna</title>
+<style>
+:root{
+  --pink:#ff4fa3; --hot:#ff2f7d; --rose:#ff8fbd; --cream:#fff8fb;
+  --plum:#3d1730; --purple:#7b4bd6; --yellow:#ffd95a; --green:#1f9d70;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--plum);background:var(--cream);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 28px));z-index:50;background:rgba(255,248,251,.78);backdrop-filter:blur(18px);border:1px solid rgba(61,23,48,.08);border-radius:999px;padding:10px 12px 10px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 12px 40px rgba(61,23,48,.10)}
+.logo{font-weight:900;letter-spacing:-.04em;font-size:1.05rem;display:flex;align-items:center;gap:9px}.logo img{width:38px;height:38px;object-fit:cover;border-radius:50%;border:2px solid white;box-shadow:0 4px 12px rgba(61,23,48,.12)}.logo span{color:var(--pink)}
+.navlinks{display:flex;gap:24px;font-size:.88rem;font-weight:700}.navcta{background:var(--plum);color:white;padding:11px 18px;border-radius:999px;font-weight:800}
+.hero{min-height:100vh;position:relative;padding:150px max(24px,5vw) 70px;display:grid;place-items:center;isolation:isolate;background:radial-gradient(circle at 12% 18%,#ffd1e6 0 8%,transparent 27%),radial-gradient(circle at 88% 20%,#e7d8ff 0 9%,transparent 28%),linear-gradient(135deg,#fff9fc,#fff0f7)}
+.blob{position:absolute;border-radius:48% 52% 64% 36%;filter:blur(.2px);z-index:-1;animation:float 7s ease-in-out infinite}
+.b1{width:360px;height:360px;background:#ff9ac5;right:-100px;top:18%;opacity:.5}.b2{width:240px;height:240px;background:#b99aff;left:-80px;bottom:8%;opacity:.35;animation-delay:-2s}
+.heroGrid{width:min(1120px,100%);display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;background:white;border:1px solid #ffd1e3;box-shadow:0 8px 25px rgba(255,79,163,.12);font-weight:800;font-size:.78rem}
+.dot{width:8px;height:8px;background:#22b573;border-radius:50%;box-shadow:0 0 0 5px #d8f8e9}
+h1{font-size:clamp(3.2rem,7vw,6.7rem);line-height:.88;letter-spacing:-.075em;margin:22px 0 22px;max-width:760px}
+.grad{background:linear-gradient(100deg,var(--hot),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.12rem;line-height:1.65;max-width:620px;color:#6f4d64}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 22px;border-radius:999px;font-weight:900;transition:.25s;cursor:pointer}
+.primary{background:linear-gradient(100deg,var(--hot),#ff72b4);color:white;box-shadow:0 15px 35px rgba(255,47,125,.25)}
+.secondary{background:white;border:1px solid #efd5e1}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(61,23,48,.15)}
+.rating{display:flex;align-items:center;gap:13px;font-weight:800}.stars{color:#f5b400;letter-spacing:2px}.muted{font-weight:600;color:#8c6e80}
+.heroCard{position:relative;min-height:510px;border-radius:42px;background:linear-gradient(145deg,#ff75b2,#7b4bd6);padding:15px;box-shadow:0 35px 90px rgba(123,75,214,.25);transform:rotate(2deg);animation:cardIn 1s cubic-bezier(.2,.8,.2,1)}
+.cardInner{height:100%;min-height:480px;border-radius:32px;background:#fff;position:relative;overflow:hidden;padding:0;display:flex;flex-direction:column;justify-content:flex-end}.heroPhoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.heroOverlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(61,23,48,.78),rgba(61,23,48,.05) 62%);z-index:1}
+.cardInner:before,.cardInner:after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}
+.cardInner:before{width:280px;height:280px;background:#ffd6e9;top:-90px;right:-60px}.cardInner:after{width:190px;height:190px;background:#d9ccff;left:-70px;top:110px}
+.mirror{display:none;position:absolute;inset:70px 50px auto;height:235px;border-radius:50% 50% 46% 46%;background:linear-gradient(145deg,#fff,#ffd4e7 50%,#cbb5ff);border:12px solid white;box-shadow:inset 0 0 50px rgba(255,255,255,.8),0 25px 45px rgba(61,23,48,.13)}
+.mirror:after{content:"B";position:absolute;inset:0;display:grid;place-items:center;font-family:Georgia,serif;font-size:7rem;font-weight:700;color:rgba(255,47,125,.25)}
+.cardLabel{position:relative;z-index:2;padding:30px;color:white;text-shadow:0 2px 10px rgba(0,0,0,.25)}.cardLabel small{font-weight:900;text-transform:uppercase;letter-spacing:.18em;color:var(--pink)}.cardLabel strong{display:block;font-family:Georgia,serif;font-size:3rem;font-style:italic}
+.marquee{background:var(--plum);color:white;overflow:hidden;white-space:nowrap;padding:15px 0;font-weight:900;text-transform:uppercase;letter-spacing:.14em}.track{display:inline-block;animation:marquee 22s linear infinite}.track span{margin:0 30px;color:#ff9bc7}
+.section{padding:110px max(24px,5vw)}.wrap{width:min(1120px,100%);margin:auto}
+.eyebrow{color:var(--pink);font-size:.78rem;text-transform:uppercase;letter-spacing:.2em;font-weight:900}.title{font-size:clamp(2.3rem,4.5vw,4.2rem);line-height:.95;letter-spacing:-.055em;margin:12px 0 18px}.sub{max-width:680px;color:#76576a;line-height:1.7}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}
+.service{padding:28px;border-radius:28px;background:white;border:1px solid #f0dce6;min-height:210px;transition:.3s;position:relative;overflow:hidden}
+.service:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-50px;top:-50px;background:#ffe0ed}
+.service:nth-child(2):before{background:#e6dcff}.service:nth-child(3):before{background:#fff0b5}
+.service:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 25px 50px rgba(61,23,48,.11)}
+.icon{font-size:2rem}.service h3{font-size:1.25rem;margin:16px 0 8px}.service p{color:#7c6372;line-height:1.6;margin:0}
+.about{background:#fff}.aboutGrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.visual{min-height:460px;border-radius:42px;background:linear-gradient(150deg,#ffd3e6,#e1d7ff);position:relative;overflow:hidden;box-shadow:0 30px 70px rgba(123,75,214,.15)}
+.ring{position:absolute;border:2px solid rgba(255,255,255,.8);border-radius:50%}.r1{width:350px;height:350px;left:-70px;top:40px}.r2{width:240px;height:240px;right:-40px;bottom:-30px}.quote{position:absolute;left:30px;right:30px;bottom:30px;background:rgba(255,255,255,.8);backdrop-filter:blur(14px);border-radius:24px;padding:25px;font-family:Georgia,serif;font-size:1.5rem;font-style:italic}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:35px}.stat{padding:20px;border-radius:22px;background:#fff7fb;border:1px solid #f4dce7}.stat b{font-size:1.5rem;display:block}.stat span{font-size:.78rem;color:#846c79}
+.review{background:linear-gradient(135deg,#4a193b,#2a1023);color:white}.reviewGrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}.reviewBig{font-size:clamp(4rem,8vw,7rem);font-weight:1000;line-height:.8;letter-spacing:-.08em}.reviewBig small{font-size:1.1rem;letter-spacing:0;color:#e9b8d0}.quoteCard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:30px;padding:32px}.quoteCard p{font-family:Georgia,serif;font-size:1.5rem;line-height:1.45;margin:0 0 22px}.quoteCard span{color:#f3c5da;font-weight:800}
+.visitGrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:45px}.contactCard{background:white;border:1px solid #f0dce6;border-radius:30px;padding:30px}.contactRow{display:flex;gap:15px;align-items:flex-start;margin:20px 0}.contactRow .emoji{width:42px;height:42px;border-radius:14px;background:#fff0f7;display:grid;place-items:center;flex:none}.contactRow b{display:block;margin-bottom:4px}.contactRow span{color:#76576a;line-height:1.5}
+.map{min-height:420px;border-radius:30px;overflow:hidden;background:#f0e8ed}.map iframe{width:100%;height:100%;min-height:420px;border:0}
+.footer{background:#fff;padding:30px max(24px,5vw);border-top:1px solid #f0dce6}.foot{width:min(1120px,100%);margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center;color:#7d6472;font-size:.88rem}.foot b{color:var(--plum)}
+.floating{position:fixed;right:20px;bottom:20px;z-index:40;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:white;font-size:1.6rem;box-shadow:0 12px 30px rgba(37,211,102,.35);animation:pulse 2.5s infinite}
+@keyframes float{50%{transform:translateY(-18px) rotate(4deg)}} @keyframes cardIn{from{opacity:0;transform:translateY(40px) rotate(7deg)}to{opacity:1;transform:translateY(0) rotate(2deg)}} @keyframes marquee{to{transform:translateX(-50%)}} @keyframes pulse{50%{box-shadow:0 12px 30px rgba(37,211,102,.35),0 0 0 12px rgba(37,211,102,.08)}}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){
+ .navlinks{display:none}.hero{padding-top:120px}.heroGrid,.aboutGrid,.reviewGrid,.visitGrid{grid-template-columns:1fr}.heroCard{min-height:430px}.cardInner{min-height:400px}.services{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.heroGrid{gap:35px}.section{padding-top:80px;padding-bottom:80px}
+}
+@media(max-width:520px){h1{font-size:3.6rem}.heroCard{min-height:390px}.mirror{inset:55px 30px auto;height:205px}.cardInner{min-height:360px}.cardLabel strong{font-size:2.5rem}.stats{grid-template-columns:1fr}.foot{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="#top"><img src="biba-logo.png" alt="The Biba Salon logo">THE <span>BIBA</span> SALON</a>
+  <div class="navlinks"><a href="#services">Services</a><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
+  <a class="navcta" href="tel:09031550961">Call Now</a>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="heroGrid">
+    <div>
+      <div class="kicker"><i class="dot"></i> Patna's glam destination</div>
+      <h1>Glow loud.<br><span class="grad">Feel Biba.</span></h1>
+      <p>A playful, polished beauty experience at <strong>The Biba Salon</strong> — made for makeup moments, celebrations and your next main-character entrance.</p>
+      <div class="actions">
+        <a class="btn primary" href="tel:09031550961">✦ Book / Enquire</a>
+        <a class="btn secondary" href="#visit">Find the Salon →</a>
+      </div>
+      <div class="rating"><span class="stars">★★★★★</span><strong>4.9</strong><span class="muted">1,273 reviews</span></div>
+    </div>
+    <div class="heroCard">
+      <div class="cardInner">
+        <img class="heroPhoto" src="salon-front.jpg" alt="The Biba Salon interior">
+        <div class="heroOverlay"></div>
+        <div class="mirror"></div>
+        <div class="cardLabel"><small>BEAUTY • MAKEUP • GLAM</small><strong>the biba salon</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div class="track">MAKEUP <span>✦</span> BEAUTY <span>✦</span> CONFIDENCE <span>✦</span> GLAM <span>✦</span> PATNA <span>✦</span> MAKEUP <span>✦</span> BEAUTY <span>✦</span> CONFIDENCE <span>✦</span> GLAM <span>✦</span> PATNA <span>✦</span></div></div>
+
+<section class="section" id="services">
+ <div class="wrap reveal">
+  <div class="eyebrow">What we do</div>
+  <h2 class="title">Your glam era<br>starts here.</h2>
+  <p class="sub">The site is intentionally focused on conversion: make the salon look desirable, establish trust fast, then get visitors to call or find the location.</p>
+  <div class="services">
+   <article class="service"><div class="icon">💄</div><h3>Makeup Artistry</h3><p>Event-ready glam designed to photograph beautifully and still feel like you.</p></article>
+   <article class="service"><div class="icon">✨</div><h3>Beauty & Styling</h3><p>Polished beauty moments for parties, celebrations, shoots and special days.</p></article>
+   <article class="service"><div class="icon">🎀</div><h3>Personal Glam</h3><p>A colorful, confidence-first salon experience built around your look and occasion.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section about" id="about">
+ <div class="wrap aboutGrid reveal">
+  <div class="visual" style="background-image:linear-gradient(180deg,rgba(61,23,48,.05),rgba(61,23,48,.35)),url('salon-inside.jpg');background-size:cover;background-position:center;"><div class="ring r1"></div><div class="ring r2"></div><div class="quote">“Pretty is a feeling. Biba makes it a whole vibe.”</div></div>
+  <div>
+   <div class="eyebrow">The Biba feeling</div>
+   <h2 class="title">Not just a salon.<br>A little confidence ritual.</h2>
+   <p class="sub">The Biba Salon is positioned as a modern, feminine beauty destination in Patna. The visual language mixes soft pinks, playful gradients, editorial typography and movement so the experience feels premium without becoming cold.</p>
+   <div class="stats"><div class="stat"><b>4.9★</b><span>Public rating</span></div><div class="stat"><b>1,273+</b><span>Reviews</span></div><div class="stat"><b>Patna</b><span>Bihar, India</span></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section review" id="reviews">
+ <div class="wrap reviewGrid reveal">
+  <div><div class="eyebrow" style="color:#ff9bc7">Loved locally</div><div class="reviewBig">4.9<small> / 5</small></div><div style="margin-top:20px;color:#e9b8d0">★★★★★ &nbsp; 1,273 reviews</div></div>
+  <div class="quoteCard"><p>“A salon should make you leave feeling more confident than when you walked in.”</p><span>THE BIBA SALON • PATNA</span></div>
+ </div>
+</section>
+
+<section class="section" id="visit">
+ <div class="wrap reveal">
+  <div class="eyebrow">Come say hi</div>
+  <h2 class="title">Let's get you<br>glam-ready.</h2>
+  <div class="visitGrid">
+   <div class="contactCard">
+    <div class="contactRow"><div class="emoji">📍</div><div><b>Visit us</b><span>P.G, S Mor, Murya Path, Raj Nagar,<br>Saguna Khagaul Rd, near New Patliputra Vastralaya,<br>Patna, Bihar 801105</span></div></div>
+    <div class="contactRow"><div class="emoji">📞</div><div><b>Call the salon</b><span><a href="tel:09031550961">090315 50961</a></span></div></div>
+    <div class="contactRow"><div class="emoji">🕙</div><div><b>Opening</b><span>Opens 10:00 AM Monday<br><small>Hours can change — call before visiting.</small></span></div></div>
+    <div class="actions"><a class="btn primary" href="tel:09031550961">Call 090315 50961</a><a class="btn secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=The+Biba+Salon+Patna+Bihar">Get Directions ↗</a></div>
+   </div>
+   <div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=The%20Biba%20Salon%2C%20Patna%2C%20Bihar&output=embed" title="The Biba Salon location"></iframe></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="footer"><div class="foot"><div><img src="biba-logo.png" alt="The Biba Salon" style="width:32px;height:32px;object-fit:cover;border-radius:50%;vertical-align:middle;margin-right:8px"><b>THE BIBA SALON</b> — Patna, Bihar</div><div>Made for beauty, confidence & a little extra sparkle ✦</div></div></footer>
+<a class="floating" href="https://wa.me/919031550961?text=Hi%20The%20Biba%20Salon%2C%20I%27d%20like%20to%20enquire%20about%20an%20appointment." aria-label="WhatsApp The Biba Salon">◉</a>
+
+<script>
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
